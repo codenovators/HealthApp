@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Slider</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // Array of background images
+        const images = [
+            'https://via.placeholder.com/1920x1080/FF6F61/FFFFFF?text=Image+1',
+            'https://via.placeholder.com/1920x1080/6B5B95/FFFFFF?text=Image+2'
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.body.style.backgroundImage = `url(${images[currentIndex]})`;
+        }
+
+        // Initial background
+        document.body.style.backgroundImage = `url(${images[currentIndex]})`;
+
+        // Change every 3 seconds
+        setInterval(changeBackground, 3000);
+    </script>
+
+</body>
+
+</html>
